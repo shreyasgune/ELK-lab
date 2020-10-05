@@ -218,7 +218,7 @@ kibana-kibana  ClusterIP  10.108.92.231  5601/TCP
 
 ## LogStash
 ```
-helm install --name logstash elastic/logstash --version 7.9.2
+helm install --name logstash elastic/logstash
 ```
 ```
 ==> v1/Pod(related)
@@ -338,6 +338,9 @@ green open .kibana_1                          NXNSrAOGQiSNRxasJNEUCA 1 1    60 1
 
 - Check logs in Kibaba
 ![kibana-logs](assets/kibana-logs.png)
+
+## Manifest References
+Chart manifests are available in the chart-manifests folder.
 
 # Cleanup
 `minkube stop`
