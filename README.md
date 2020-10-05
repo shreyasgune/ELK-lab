@@ -239,7 +239,8 @@ logstash-logstash-pdb
 ```
 > give it a few minutes for the readiness-probe to get sorted and pod to spin up successfully
 
-- Verify
+> Verify using `kubectl port-forward svc/logstash-logstash-headless 9600`
+
 ```
 curl localhost:9600
 
@@ -307,9 +308,10 @@ metricbeat-metricbeat-cluster-role-binding
 
 ### Verify Indexes in ElasticSearch 
 
-`kubectl port-forward svc/elasticsearch-master 9200`
+> Verfiy using `kubectl port-forward svc/elasticsearch-master 9200`
+
 ```
- curl localhost:9200/_cat/indices                                                  
+curl localhost:9200/_cat/indices                                                  
 green open .kibana-event-log-7.9.2-000001     EtyavU09R5yK-hKZoy9Ukw 1 1     2  0  21.7kb 10.8kb
 green open .apm-custom-link                   n0aj3z6kTS-H6v3mbUz_Tw 1 1     0  0    416b   208b
 green open .kibana_task_manager_1             YxgOMw3QRHCo3hoywLiT0w 1 1     6 60 121.4kb 54.8kb
@@ -321,7 +323,7 @@ green open .kibana_1                          NXNSrAOGQiSNRxasJNEUCA 1 1    60 1
 ```
 
 ## Let's Analyze data
-`kubectl port-forward service/kibana-kibana 5601`
+> Analysis using `kubectl port-forward service/kibana-kibana 5601`
 
 - Browse to `http://localhost:5601/app/management/data/index_management/indices` where you should see your `metricbeat-index` show up.
 
